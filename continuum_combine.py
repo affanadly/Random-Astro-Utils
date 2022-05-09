@@ -3,6 +3,11 @@
 from astropy.io import fits
 import numpy as np
 from argparse import ArgumentParser
+
+def combine(f): # f is list of HDUimages
+    data = np.array([chan[0].data for chan in f])
+    shape = data[0].shape
+    return data.reshape(shape[0],-1,shape[2],shape[3])
     
 def __main__():
     ps = ArgumentParser(description='Combines continuum images into a pseudo-spectral image. (https://github.com/affanadly)')
@@ -13,9 +18,7 @@ def __main__():
     args = ps.parse_args()
     
     f = [fits.open(file) for file in args.files]
-    data = np.array([chan[0].data for chan in f])
-    shape = data[0].shape
-    data = data.reshape(shape[0],-1,shape[2],shape[3])
+    data = combine(f)
     
     header = f[0][0].header
     header['CRPIX3'] = 1
