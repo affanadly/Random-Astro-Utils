@@ -7,21 +7,21 @@ echo "Installing pre-requisites..."
 sudo apt-get install -y build-essential git cmake
 
 cd /tmp/
-wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-4.8/g++-4.8_4.8.5-4ubuntu8_amd64.deb
-wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-4.8/libstdc++-4.8-dev_4.8.5-4ubuntu8_amd64.deb
 wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-4.8/gcc-4.8-base_4.8.5-4ubuntu8_amd64.deb
-wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-4.8/gcc-4.8_4.8.5-4ubuntu8_amd64.deb
-wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-4.8/libgcc-4.8-dev_4.8.5-4ubuntu8_amd64.deb
-wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-4.8/cpp-4.8_4.8.5-4ubuntu8_amd64.deb
 wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-4.8/libasan0_4.8.5-4ubuntu8_amd64.deb
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-4.8/libgcc-4.8-dev_4.8.5-4ubuntu8_amd64.deb
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-4.8/libstdc++-4.8-dev_4.8.5-4ubuntu8_amd64.deb
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-4.8/cpp-4.8_4.8.5-4ubuntu8_amd64.deb
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-4.8/gcc-4.8_4.8.5-4ubuntu8_amd64.deb
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-4.8/g++-4.8_4.8.5-4ubuntu8_amd64.deb
 
-sudo dpkg -i g++-4.8_4.8.5-4ubuntu8_amd64.deb
-sudo dpkg -i libstdc++-4.8-dev_4.8.5-4ubuntu8_amd64.deb
-sudo dpkg -i gcc-4.8-base_4.8.5-4ubuntu8_amd64.deb
-sudo dpkg -i gcc-4.8_4.8.5-4ubuntu8_amd64.deb
-sudo dpkg -i libgcc-4.8-dev_4.8.5-4ubuntu8_amd64.deb
-sudo dpkg -i cpp-4.8_4.8.5-4ubuntu8_amd64.deb
-sudo dpkg -i libasan0_4.8.5-4ubuntu8_amd64.deb
+sudo apt install -y ./gcc-4.8-base_4.8.5-4ubuntu8_amd64.deb
+sudo apt install -y ./libasan0_4.8.5-4ubuntu8_amd64.deb
+sudo apt install -y ./libgcc-4.8-dev_4.8.5-4ubuntu8_amd64.deb
+sudo apt install -y ./libstdc++-4.8-dev_4.8.5-4ubuntu8_amd64.deb
+sudo apt install -y ./cpp-4.8_4.8.5-4ubuntu8_amd64.deb
+sudo apt install -y ./gcc-4.8_4.8.5-4ubuntu8_amd64.deb
+sudo apt install -y ./g++-4.8_4.8.5-4ubuntu8_amd64.deb
 
 echo "Downloading jive5ab source codes..."
 cd /usr/src/
