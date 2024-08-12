@@ -8,4 +8,5 @@ Random utility functions for radio astronomy
 * `kurtosis.py` - RFI flagging functions using generalized spectral kurtosis.
 * `omni_convert.py` - Converts OMNIweb data from ASCII to FITS.
 * `poisson_counts_error.ipynb` - Function to evaluate/approximate the Poisson limits for number of events in astrophysical data.
+* `umalayathesis.cls` - Modified Universiti Malaya LaTeX format based on Faculty of Science, 2024 requirements (in progress).
 * `weighted_clip.py` - Performs weighting on continuum images based on sensitivity map, analogous to sampling distributions in MCMC.
