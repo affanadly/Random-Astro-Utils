@@ -1,0 +1,774 @@
+\documentclass{umalayathesis}
+
+\usepackage{pdflscape}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{longtable}
+
+\usepackage{minted}
+\usemintedstyle{vs}
+\setminted{%
+    autogobble=true,
+    breaklines=true,
+    fontsize=\small,
+    fontfamily=tt,
+    formatcom=\setstretch{1.0},
+    frame=single,
+    framesep=6pt,
+    tabsize=4
+}
+
+\author{Affan Adly Bin Nazri}
+% \identification{}
+% \matric{}
+\title{The umalayathesis \LaTeX{} Document Class}
+\tajuk{Kelas Dokumen \LaTeX{} umalayathesis}
+% \fieldofstudy{}
+
+\university{Universiti Malaya}
+\department{Department of Physics}
+\faculty{Faculty of Science}
+\submissionyear{2025}
+\degree{Doctor of Philosophy}
+
+\begin{filecontents}{ref.bib}
+@article{Rosli2023,
+  title = {Limits of water maser kinematics: {Insights} from the high-mass protostar {AFGL 5142-MM1}},
+  volume = {527},
+  issn = {1365-2966},
+  url = {http://dx.doi.org/10.1093/mnras/stad3767},
+  doi = {10.1093/mnras/stad3767},
+  number = {4},
+  journal = {Monthly Notices of the Royal Astronomical Society},
+  publisher = {Oxford University Press (OUP)},
+  author = {Rosli, Zulfazli and Burns, Ross A and Nazri, Affan Adly and Sugiyama, Koichiro and Hirota, Tomoya and Kim, Kee-Tae and Yonekura, Yoshinori and Tie, Liu and Orosz, Gabor and Chibueze, James Okwe and Sobolev, Andrey M and Kang, Ji Hyun and Lee, Chang Won and Hwang, Jihye and Mohammad, Hafieduddin and Hashim, Norsiah and Abidin, Zamri Zainal},
+  year = {2023},
+  month = dec,
+  pages = {10031-10037},
+
+  author+an = {3=highlight},
+  keywords={own},
+}
+
+@article{Zhou2024,
+  title = {The {RAdio Galaxy Environment Reference Survey (RAGERS)}: {Evidence} of an anisotropic distribution of submillimeter galaxies in the {4C 23.56} protocluster at z = 2.48},
+  url = {https://arxiv.org/abs/2408.02177},
+  doi = {10.1051/0004-6361/202348500},
+  journal = {Astronomy \& Astrophysics},
+  author = {Zhou, Dazhi and Greve, Thomas R. and Gullberg, Bitten and Lee, Minju M. and Mascolo, Luca Di and Dicker, Simon R. and Romero, Charles E. and Chapman, Scott C. and Chen, Chian-Chou and Cornish, Thomas and Devlin, Mark J. and Ho, Luis C. and Kohno, Kotaro and Lagos, Claudia D. P. and Mason, Brian S. and Mroczkowski, Tony and Wagg, Jeff F. W. and Wang, Q. Daniel and Wang, Ran and Brinch, Malte. and Dannerbauer, Helmut and Jiang, Xue-Jian and Lauritsen, Lynge R. B. and Vijayan, Aswin P. and Vizgan, David and Wardlow, Julie L. and Sarazin, Craig L. and Sarmiento, Karen P. and Serjeant, Stephen and Bhandarkar, Tanay A. and Haridas, Saianeesh K. and Moravec, Emily and Orlowski-Scherer, John and Sievers, Jonathan L. R. and Tanaka, Ichi and Wang, Yu-Jan and Zeballos, Milagros and Laza-Ramos, Andres and Liu, Yuanqi and Hassan, Mohd Shaiful Rizal and Jwel, Abdul Kadir Md and Nazri, Affan Adly and Lim, Ming-Kang and Ibrahim, Ungku Ferwani Salwa Ungku},
+  year = {2024},
+  month = aug,
+  note = {Accepted on 18 July 2024},
+
+  author+an = {42=highlight},
+  keywords = {own}
+}
+
+@article{vanderTak1999,
+  title = {The Impact of the Massive Young Star {GL 2591} on Its Circumstellar Material: Temperature,  Density,  and Velocity Structure},
+  volume = {522},
+  ISSN = {1538-4357},
+  url = {http://dx.doi.org/10.1086/307666},
+  DOI = {10.1086/307666},
+  number = {2},
+  journal = {The Astrophysical Journal},
+  publisher = {American Astronomical Society},
+  author = {van der Tak,  Floris F. S. and van Dishoeck,  Ewine F. and Evans II,  Neal J. and Bakker,  Eric J. and Blake,  Geoffrey A.},
+  year = {1999},
+  month = sep,
+  pages = {991–1010}
+}
+
+@article{Nita2010,
+  title = {The generalized spectral kurtosis estimator},
+  volume = {406},
+  ISSN = {1745-3925},
+  url = {http://dx.doi.org/10.1111/j.1745-3933.2010.00882.x},
+  DOI = {10.1111/j.1745-3933.2010.00882.x},
+  number = {1},
+  journal = {Monthly Notices of the Royal Astronomical Society: Letters},
+  publisher = {Oxford University Press (OUP)},
+  author = {Nita,  G. M. and Gary,  D. E.},
+  year = {2010},
+  month = jul,
+  pages = {L60–L64}
+}
+
+@inproceedings{Umar2012,
+  title = {Population density effect on radio frequencies interference {(RFI)} in radio astronomy},
+  ISSN = {0094-243X},
+  url = {http://dx.doi.org/10.1063/1.4730683},
+  DOI = {10.1063/1.4730683},
+  booktitle = {{AIP} Conference Proceedings},
+  publisher = {AIP},
+  author = {Umar,  Roslan and Abidin,  Zamri Zainal and Ibrahim,  Zainol Abidin and Hassan,  Mohd Saiful Rizal and Rosli,  Zulfazli and Hamidi,  Zety Shahrizat},
+  year = {2012}
+}
+
+@article{Abidin2021,
+  title = {Radio quiet and radio notification zones characteristics for radio astronomy in medium densely populated areas and humid tropical countries},
+  volume = {7},
+  ISSN = {2329-4124},
+  url = {http://dx.doi.org/10.1117/1.JATIS.7.2.027001},
+  DOI = {10.1117/1.jatis.7.2.027001},
+  number = {02},
+  journal = {Journal of Astronomical Telescopes,  Instruments,  and Systems},
+  publisher = {SPIE-Intl Soc Optical Eng},
+  author = {Abidin,  Zamri Z. and Rosli,  Zulfazli and Radzi,  Mohd S. M. and Shah,  Noraisyah M. and Dahari,  Mahidzal and Ramadhani,  Farah and Ghazali,  Mohd I. M. and Azarbad,  Bahman and Ibrahim,  Ungku F. S. U. and Hashim,  Norsiah},
+  year = {2021},
+  month = apr
+}
+
+@article{Burns2017,
+  title = {Trigonometric distance and proper motions of {H$_2$O} maser bowshocks in {AFGL} 5142},
+  ISSN = {1365-2966},
+  url = {http://dx.doi.org/10.1093/mnras/stx216},
+  DOI = {10.1093/mnras/stx216},
+  journal = {Monthly Notices of the Royal Astronomical Society},
+  publisher = {Oxford University Press (OUP)},
+  author = {Burns,  R. A. and Handa,  T. and Imai,  H. and Nagayama,  T. and Omodaka,  T. and Hirota,  T. and Motogi,  K. and van Langevelde,  H. J. and Baan,  W. A.},
+  year = {2017},
+  month = jan,
+  pages = {stx216}
+}
+
+@article{Sugiyama2022,
+  title = {The 40-m {Thai National Radio Telescope} with its key sciences and a future {South-East Asian VLBI Network}},
+  volume = {18},
+  ISSN = {1743-9221},
+  url = {http://dx.doi.org/10.1017/S1743921323002909},
+  DOI = {10.1017/s1743921323002909},
+  number = {S380},
+  journal = {Proceedings of the International Astronomical Union},
+  publisher = {Cambridge University Press (CUP)},
+  author = {Sugiyama,  Koichiro and Jaroenjittichai,  Phrudth and Leckngam,  Apichat and Kramer,  Busaba H. and Rujopakarn,  Wiphu and Soonthornthum,  Boonrucksar and Sakai,  Nobuyuki and Punyawarin,  Songklod and Duangrit,  Nattapong and Asanok,  Kitiyanee and Hidayat,  Taufiq and Abidin,  Zamri Zainal and Algaba,  Juan Carlos and Diep,  Pham Ngoc and Poshyachinda,  Saran},
+  year = {2022},
+  month = dec,
+  pages = {461–469}
+}
+\end{filecontents}
+
+\addbibresource{ref.bib}
+
+\begin{document}
+
+\frontmatter
+\makecoverandtitlepage{\doctoralresearch}
+\declarationpage
+
+\begin{abstract}
+An abstract must not exceed 500 words, typed in a single paragraph with double- spacing, and written in English language. A maximum of five (5) keywords should also be listed below the abstract.
+
+\textbf{Keywords: } Keyword, keyword, keyword.
+\end{abstract}
+
+\begin{abstrak}
+Abstrak Bahasa Malaysia perlu ditulis dalam satu perenggan menggunakan \textit{double-spacing} dan tidak melebihi 500 patah perkataan. 
+
+\textbf{Kata kunci: } Kata kunci, kata kunci, kata kunci.
+\end{abstrak}
+
+\acknowledgements{Thanks guys, I owe you many.}
+
+{\clearpage
+\tableofcontents\clearpage
+\listoffigures\clearpage
+\listoftables\clearpage
+\begin{listofacronyms}
+    $\theta_D$ & Diffraction limit \\
+    $\alpha$ & Spectral index \\
+    ALMA & Atacama Large Millimeter/submillimeter Array \\
+    VLBI & Very Long Baseline Interferometry
+\end{listofacronyms}\clearpage
+\listofappendices\clearpage
+}
+
+\mainmatter
+
+\chapter{Introduction}
+
+\texttt{umalayathesis} is a \LaTeX{} class for authoring theses that fulfil formatting specifications required by Universiti Malaya, Malaysia. This updated version of the document class is written based on the original \texttt{umalayathesis} written by Lim Lian Tze (which can be accessed on \url{https://github.com/liantze/umalayathesis} and \url{https://www.overleaf.com/latex/templates/universiti-malaya-thesis-template/kbdmvkbnjchb}), 
+
+This version simplified and written to match the Faculty of Science thesis preparation guide as of 2024, which can be accessed at \url{https://fs.um.edu.my/thesis}. This version also implements the usage of \texttt{biblatex} which provides various functionalities required for special formatting of the references.
+
+\chapter{Preambles}
+
+\section{Activation}
+
+To `activate' the class, start with \mintinline{latex}|\documentclass{umalayathesis}| in the main document file. 
+
+\section{Packages}
+
+\LaTeX{} packages can be loaded using the usual \mintinline{latex}|\usepackage| command. Below are a few highly-recommended packages:
+
+\begin{minted}{latex}
+    \usepackage{pdflscape} % landscape pages
+    \usepackage{graphicx} % advanced graphics options
+    \usepackage{tabularx} % advanced table options
+    \usepackage{longtable} % multi-page tables
+\end{minted}
+
+\section{Author Information}
+
+Author information for the thesis has to be provided in the preamble with the following commands:
+
+\begin{minted}{latex}
+    \author{Affan Adly Bin Nazri}
+    \identification{}
+    \matric{}
+    \title{The umalayathesis \LaTeX{} Document Class}
+    \tajuk{Kelas Dokumen \LaTeX{} umalayathesis}
+    \fieldofstudy{}
+    
+    \university{Universiti Malaya}
+    \department{Department of Physics}
+    \faculty{Faculty of Science}
+    \submissionyear{2025}
+    \degree{Doctor of Philosophy}
+\end{minted}
+
+\mintinline{latex}|\identification| should be filled with either your I.C. or your passport number. \mintinline{latex}|\matric| should be filled with either your registration or your matric number. \mintinline{latex}|\tajuk| can be filled with the Bahasa Malaysia version of your title (to be written above your Bahasa Malaysia abstract), but is not required. 
+
+\section{Bibliography Files}
+
+Before entering the main document body, call all bibliography files (\texttt{.bib} files) using the \mintinline{latex}|\addbibresource{file.bib}|. If there are multiple bibliography files, call the command repeatedly for each file. See Section \ref{sec:ref} for more information on the preparation of these \texttt{.bib} files.
+
+\chapter{Front Matter}
+
+Once in the main document body i.e. using \mintinline{latex}|\begin{document}|, setup the front matter using the following commands:
+
+\begin{minted}{latex}
+    \frontmatter
+    % \makecoverandtitlepage{\mastercoursework}
+    % \makecoverandtitlepage{\mastermixedmode}
+    % \makecoverandtitlepage{\masterresearch}
+    % \makecoverandtitlepage{\doctoralcoursework}
+    \makecoverandtitlepage{\doctoralresearch}
+    % \makecoverandtitlepage{\doctoralmixedmode}
+    \declarationpage
+\end{minted}
+
+Uncomment the correct \mintinline{latex}|\makecoverandtitle| line to generate the correct statement on the title page based on the thesis type.
+
+\section{Abstracts}
+
+Write the English and Bahasa Malaysia abstracts in the \texttt{abstract} and \texttt{abstrak} environments respectively. If \mintinline{latex}|\tajuk| is defined, the Bahasa Malaysia abstract title will be prepended with that. A maxmimum of five (5) keywords should be listed below the abstract within their respective environments with the following format:
+
+\mint{latex}|\textbf{Keywords: } Keyword, keyword, keyword.|
+
+\section{Acknowledgements}
+
+Write the acknowledgements as the argument to the \mintinline{latex}|\acknowledgements{}| command.
+
+\section{Table of Contents and Lists}
+
+The table of contents, list of figures, list of tables, list of symbols and abbreviations, and list of appendices are generated using the following commands:
+
+\begin{minted}{latex}
+    {\clearpage
+    \tableofcontents\clearpage
+    \listoffigures\clearpage
+    \listoftables\clearpage
+    \begin{listofacronyms}
+        ...
+    \end{listofacronyms}\clearpage
+    \listofappendices\clearpage
+    }
+\end{minted}
+
+The \texttt{listofacronyms} environment is a wrapper for the \texttt{tabular} environment, with settings meant for the list of symbols and abbreviations. Each row should be written in alphabetical order in the following format:
+
+\begin{minted}{latex}
+    Symbol/Abbr. & Explanation for the symbol/abbreviation \\
+    Symbol/Abbr. & Explanation for the symbol/abbreviation
+\end{minted}
+
+Note that the list should not end with double backslashes.
+
+\chapter{Main Chapters}
+
+The main chapters of the thesis should start with the \mintinline{latex}|\mainmatter| command. Then, the usual commands i.e. \mintinline{latex}|\chapter|, \mintinline{latex}|\section|, \mintinline{latex}|\subsection|, \mintinline{latex}|\subsubsection| can be used. Fifth level headings is also possible using \mintinline{latex}|\subsubsubsection|, but it will not appear in the Table of Contents (and not recommended in general). It is recommended that each chapter/section is split into different \texttt{tex} files and loaded into the main document file using the \mintinline{latex}|\input| command.
+
+\section{Figures}
+
+Figures can be added as usual using the \texttt{figure} environment. If a figure is too wide, it can be placed in a \texttt{landscape} environment (assuming that \texttt{pdflscape} has been loaded into the preamble). The following is an example command for the \texttt{figure} environment, followed by the output in Figure \ref{fig:figure}: 
+
+\begin{minted}{latex}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.75\linewidth]{example-image-a}
+        \caption{Example figure.}
+        \label{fig:a}
+    \end{figure}
+\end{minted}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\linewidth]{example-image-a}
+    \caption{Example figure.}
+    \label{fig:figure}
+\end{figure}
+
+Subfigures are also pre-loaded into this class, and they can be invoked by splitting a \texttt{figure} environment using the \texttt{minipage} environment. The following is an example command for the \texttt{subfigure} environment, followed by the output in Figure \ref{fig:subfigures}:
+
+\begin{minted}{latex}
+    \begin{figure}[h]
+        \centering
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=0.95\linewidth]{example-image-b}
+            \subcaption{Example subfigure with subcaption.}
+        \end{minipage}%
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=0.95\linewidth]{example-image-c}
+            \subcaption{}
+        \end{minipage}
+        \caption{Example subfigures, with the left subfigure with a subcaption, and the right subfigure without a subcaption, which means it can be explained in the main caption.}
+        \label{fig:subfigures}
+    \end{figure}
+\end{minted}
+
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.95\linewidth]{example-image-b}
+        \subcaption{Example subfigure with subcaption.}
+    \end{minipage}%
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.95\linewidth]{example-image-c}
+        \subcaption{}
+    \end{minipage}
+    \caption{Example subfigures, with the left subfigure with a subcaption, and the right subfigure without a subcaption, which means it can be explained in the main caption.}
+    \label{fig:subfigures}
+\end{figure}
+
+The following is an example command for a landscape figure, and it is rendered in Appendix \ref{app:landscapefigure}:
+
+\begin{minted}{latex}
+    \begin{landscape}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.7\linewidth]{example-image-a}
+            \caption{Example landscape figure.}
+            \label{fig:landscapefigure}
+        \end{figure}
+    \end{landscape}
+\end{minted}
+
+\section{Tables}
+
+Tables can also be added as usual using the \texttt{table} and \texttt{tabular} environments. For more advanced customization, the \texttt{tabularx} environment can be used (assuming that it has been loaded into the preamble). Subtables are also possible, the same way as subfigures. The following is an example command for the \texttt{table} and \texttt{tabular} environment, followed by the output in Table \ref{tab:table}:
+
+\begin{minted}{latex}
+    \begin{table}[h]
+        \centering
+        \caption{Example table using the tabular environment.}
+        \label{tab:table}
+        \begin{tabular}{cc}
+            \hline
+            First header & Second header \\
+            \hline
+            1 & A \\
+            2 & B \\
+            3 & C \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{minted}
+
+\begin{table}[h]
+    \centering
+    \caption{Example table using the tabular environment.}
+    \label{tab:table}
+    \begin{tabular}{cc}
+        \hline
+        First header & Second header \\
+        \hline
+        1 & A \\
+        2 & B \\
+        3 & C \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Similar to figures, if a table is too wide, it can be placed in a \texttt{landscape} environment. The following is an example command for a landscape table, and it is rendered in Appendix \ref{app:landscapetable}:
+
+\begin{minted}{latex}
+    \begin{landscape}
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{cccccccc}
+                \hline
+                First column & Second column & Third column & Fourth column & Fifth column & Sixth column & Seventh column & Eight column \\
+                \hline
+                A & B & C & D & E & F & G & H \\
+                1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+                I & II & III & IV & V & VI & VII & VIII \\
+                \hline
+            \end{tabular}
+            \caption{Example landscape table.}
+            \label{tab:landscapetable}
+        \end{table}
+    \end{landscape}
+\end{minted}
+
+If a table is too long to fit in a single page, the table should be created with a \texttt{longtable} environment instead (assuming that it has been loaded into the preamble). The following is an example command for the \texttt{longtable} environment, and it is rendered in Appendix \ref{app:longtable}:
+
+\begin{minted}{latex}
+    \begin{longtable}{ccc}
+        \caption{Example longtable.}\label{tab:longtable} \\
+        \hline
+        First column & Second column & Third column \\
+        (units) & (units) & (units) \\
+        \hline
+        \endfirsthead
+        \caption*{Example longtable (continued \dots)} \\
+        \hline
+        First column & Second column & Third column \\
+        \hline
+        \endhead
+        \hline
+        continued \dots
+        \endfoot
+        \hline
+        \endlastfoot
+        ...
+    \end{longtable}
+\end{minted}
+
+Both environments can also be combined to accomodate a wide and long table, by applying the \texttt{landscape} environment first.
+
+\section{Code}
+
+To display code, the \texttt{minted} package can be used. The \texttt{minted} package should be initialized in the preamble using the following command:
+
+\begin{minted}{latex}
+    \usepackage{minted}
+    \usemintedstyle{vs}
+    \setminted{%
+        autogobble=true,
+        breaklines=true,
+        fontsize=\small,
+        fontfamily=tt,
+        formatcom=\setstretch{1.0},
+        frame=single,
+        framesep=6pt,
+        tabsize=4
+    }
+\end{minted}
+
+For multi-line code, use the \texttt{minted} environment, with the argument denoting the language of the code. For single line code, the \mintinline{latex}|\mint| acts as a shortform of the \texttt{minted} environment. For inline code, use the \mintinline{latex}|\mintinline| command. To read and format entire code files, use the \mintinline{latex}|\inputminted| command. In all these commands, the formats can be temporarily changed via their optional arguments. 
+
+The \texttt{minted} environment can be enclosed within a \texttt{listing} environment, analogous to \texttt{figure} and \texttt{table} environments, with the possibility of adding captions and labels. 
+
+\section{Citations}
+
+As this version of the \texttt{umalayathesis} document class utilizes \texttt{biblatex} (See Section \ref{sec:ref} for more information), \texttt{biblatex} cite commands should be used. All \texttt{biblatex} citation commands take one mandatory arguments i.e. \texttt{key} and two optional arguments i.e. \texttt{prenote} and \texttt{postnote} with the following syntax:
+
+\mint{latex}|\command[prenote][postnote]{key}|
+
+\texttt{key} corresponds to the entry keys in the bibliography file(s), \texttt{prenote} is printed at the beginning of the citation, and \texttt{postnote} is printed at the end of citation. If the bibliographic entry begins with a lowercase, the citation command can be forced to uppercase using \mintinline{latex}|\Command| i.e. if the citation begins a sentence (this is overriden if the command has a prenote). Multiple citations can be done by listing all the keys, but unique pre- and/or postnotes for each key can be invoked using \mintinline{latex}|\commands| with the following syntax:
+
+\mint{latex}|\commands[prenote1][post1]{key1}[prenote2][postnote2]{key2} ...|
+
+The next subsections will show the common APA in-text citation commands in \texttt{biblatex}, followed by examples of their output (and respective variants). The bibliographic entries used in the examples are:
+
+\begin{itemize}
+    \item Usual: \mintinline{latex}|\command{Rosli2023}|
+    \item With pre- and postnotes: \mintinline{latex}|\command[pre][post]{Zhou2024}|
+    \item Forcing uppercase: \mintinline{latex}|\Command[pre][post]{vanderTak1999}|
+    \item Multiple citations: \mintinline{latex}|\command[pre][post]{Nita2010, Umar2012, Abidin2021}|
+    \item Unique pre- and postnotes: \\ \mintinline{latex}|\commands[pre1][post1]{Burns2017}[pre2][post2]{Sugiyama2022}|
+\end{itemize}
+
+\subsection{Citation Commands}
+
+\mintinline{latex}|\parencite| This creates the usual APA style citation in parentheses: \parencite{Rosli2023}. 
+
+\begin{itemize}[nosep]
+    \item With pre- and postnotes: \parencite[pre][post]{Zhou2024}
+    \item Forcing uppercase: \Parencite{vanderTak1999}
+    \item Multiple citations: \parencite[pre][post]{Nita2010, Umar2012, Abidin2021}
+    \item Unique pre- and postnotes: \parencites[pre1][post1]{Burns2017}[pre2][post2]{Sugiyama2022}
+\end{itemize}
+
+\mintinline{latex}|\textcite| This creates the in-text APA style citation which puts only the year in parentheses, usually for usage in text to refer to the author of a specific reference: \textcite{Rosli2023}. 
+
+\begin{itemize}[nosep]
+    \item With pre- and postnotes: \textcite[pre][post]{Zhou2024}
+    \item Forcing uppercase: \Textcite{vanderTak1999}
+    \item Multiple citations: \textcite[pre][post]{Nita2010, Umar2012, Abidin2021}
+    \item Unique pre- and postnotes: \textcites[pre1][post1]{Burns2017}[pre2][post2]{Sugiyama2022}
+\end{itemize}
+
+\mintinline{latex}|\cite| This creates APA style citation without parentheses, usually for usage in text to refer to the exact reference: \cite{Rosli2023}
+
+\begin{itemize}[nosep]
+    \item With pre- and postnotes: \cite[pre][post]{Zhou2024}
+    \item Forcing uppercase: \Cite{vanderTak1999}
+    \item Multiple citations: \cite[pre][post]{Nita2010, Umar2012, Abidin2021}
+    \item Unique pre- and postnotes: \cites[pre1][post1]{Burns2017}[pre2][post2]{Sugiyama2022}
+\end{itemize}
+
+\subsection{Text Commands}
+
+These are special commands to place citations in the flow of text. Note that these citations will not appear in the full references as they are excluded in tracking. Pre- and/or postnotes, forcing uppercase, and multiple citations are called as usual (though advanced multiple citations is not possible). 
+
+\mintinline{latex}{\citeauthor} This prints only the author of the reference without brackets for usage in natural textual flow: \citeauthor{Rosli2023}. 
+
+\mintinline{latex}{\citeyear} This prints only the year of the reference without brackets for usage in natural textual flow: \citeyear{Rosli2023}. 
+
+\subsection{Special Commands}
+
+These are special commands provided by the core of \texttt{biblatex}. These commands do not have any special variants.
+
+\mintinline{latex}|\nocite| This forces a specific reference(s) specified by \texttt{key} to appear in citations even if they are not cited in-text. If the \texttt{key} is set to \texttt{*}, all references will appear in the citations (though this is usually not recommended). 
+
+\mintinline{latex}|\fullcite| This prints out the full citation of a specific reference(s) specified by \texttt{key} similar to the bibliography output. 
+
+\chapter{Back Matter}
+
+After the last chapter and its contents, the remaining components of the thesis are the references and the appendices. 
+
+\section{Bibliography}\label{sec:ref}
+
+Unlike the original \texttt{umalayathesis} class, this version utilizes the more modern \texttt{biblatex} for bibliography management which allows for more complex functions. Here, \texttt{biblatex} is utilized for splitting author's own publications (articles and conference proceedings) from the other references, and highlighting author's own name in their own publications list. For more information, refer to \url{https://ctan.org/pkg/biblatex}.
+
+\subsection{Bibliography Files}
+
+Bibliography files (\texttt{.bib} files) follow the standard \texttt{bibtex} formatting. For author's own publications, the entries should be modified by the following rules:
+
+\begin{itemize}
+    \item Add the `\texttt{keywords}' key and set its value to `\texttt{own}' e.g.
+    \begin{minted}{bibtex}
+        @article{...,
+            keywords={own},
+        }
+    \end{minted}
+    \item Add the author annotation key (\texttt{author+an}) and set its value to highlight the author's name e.g. if the author's name is the third name in the author list, write 
+    \begin{minted}{bibtex}
+        @article{...,
+            author+an = {3=highlight},
+        }
+    \end{minted}
+    \item If the entry is a conference proceeding, add the keyword `\texttt{conf}' to the keywords e.g.
+    \begin{minted}{bib}
+        @article{...,
+            keywords={own,conf},
+        }
+    \end{minted}
+\end{itemize}
+
+\subsection{References}
+
+The reference lists are printed out using the commands \mintinline{latex}|\references| for all other references and \mintinline{latex}|\ownreferences| for author's own publications. \mintinline{latex}|\ownreferences| will split the author's own journal articles (and other types of bibliography) and conference proceedings into two lists. If any of the lists are empty, the list titles will not appear (but warnings will be raised when compiling).
+
+\section{Appendices}
+
+The appendices are written as chapters within an \texttt{appendices} environment, and the list of appendices in the front matter will update accordingly. 
+
+\nocite{*}
+\references
+\ownreferences
+
+\begin{appendices}
+\chapter{Landscape \texttt{figure} Example}\label{app:landscapefigure}
+
+\begin{landscape}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.7\linewidth]{example-image-a}
+        \caption{Example landscape figure.}
+        \label{fig:landscapefigure}
+    \end{figure}
+\end{landscape}
+
+\chapter{Landscape \texttt{table} Example}\label{app:landscapetable}
+
+\begin{landscape}
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{cccccccc}
+            \hline
+            First column & Second column & Third column & Fourth column & Fifth column & Sixth column & Seventh column & Eight column \\
+            \hline
+            A & B & C & D & E & F & G & H \\
+            1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+            I & II & III & IV & V & VI & VII & VIII \\
+            \hline
+        \end{tabular}
+        \caption{Example landscape table.}
+        \label{tab:landscapetable}
+    \end{table}
+\end{landscape}
+
+\chapter{\texttt{longtable} Example}\label{app:longtable}
+
+\begin{longtable}{ccc}
+    \caption{Example longtable.}\label{tab:longtable} \\
+    \hline
+    First column & Second column & Third column \\
+    (units) & (units) & (units) \\
+    \hline
+    \endfirsthead
+    \caption*{Example longtable (continued \dots)} \\
+    \hline
+    First column & Second column & Third column \\
+    \hline
+    \endhead
+    \hline
+    continued \dots
+    \endfoot
+    \hline
+    \endlastfoot
+    A & 1 & I \\
+    B & 2 & II \\
+    C & 3 & III \\
+    D & 4 & IV \\
+    E & 5 & V \\
+    F & 6 & VI \\
+    G & 7 & VII \\
+    H & 8 & VIII \\
+    I & 9 & IX \\
+    J & 10 & X \\
+    K & 11 & XI \\
+    L & 12 & XII \\
+    M & 13 & XIII \\
+    N & 14 & XIV \\
+    O & 15 & XV \\
+    P & 16 & XVI \\
+    Q & 17 & XVII \\
+    R & 18 & XVIII \\
+    S & 19 & XIX \\
+    T & 20 & XX \\
+    U & 21 & XXI \\
+    V & 22 & XXII \\
+    W & 23 & XXIII \\
+    X & 24 & XXIV \\
+    Y & 25 & XXV \\
+    Z & 26 & XXVI \\
+    A & 27 & XXVII \\
+    B & 28 & XXVIII \\
+    C & 29 & XXIX \\
+    D & 30 & XXX \\
+    E & 31 & XXXI \\
+    F & 32 & XXXII \\
+    G & 33 & XXXIII \\
+    H & 34 & XXXIV \\
+    I & 35 & XXXV \\
+    J & 36 & XXXVI \\
+    K & 37 & XXXVII \\
+    L & 38 & XXXVIII \\
+    M & 39 & XXXIX \\
+    N & 40 & XL \\
+    O & 41 & XLI \\
+    P & 42 & XLII \\
+    Q & 43 & XLIII \\
+    R & 44 & XLIV \\
+    S & 45 & XLV \\
+    T & 46 & XLVI \\
+    U & 47 & XLVII \\
+    V & 48 & XLVIII \\
+    W & 49 & XLIX \\
+    X & 50 & L \\
+    Y & 51 & LI \\
+    Z & 52 & LII \\
+    A & 53 & LIII \\
+    B & 54 & LIV \\
+    C & 55 & LV \\
+    D & 56 & LVI \\
+    E & 57 & LVII \\
+    F & 58 & LVIII \\
+    G & 59 & LIX \\
+    H & 60 & LX \\
+    I & 61 & LXI \\
+    J & 62 & LXII \\
+    K & 63 & LXIII \\
+    L & 64 & LXIV \\
+    M & 65 & LXV \\
+    N & 66 & LXVI \\
+    O & 67 & LXVII \\
+    P & 68 & LXVIII \\
+    Q & 69 & LXIX \\
+    R & 70 & LXX \\
+    S & 71 & LXXI \\
+    T & 72 & LXXII \\
+    U & 73 & LXXIII \\
+    V & 74 & LXXIV \\
+    W & 75 & LXXV \\
+    X & 76 & LXXVI \\
+    Y & 77 & LXXVII \\
+    Z & 78 & LXXVIII \\
+\end{longtable}
+
+\chapter{Barebones \texttt{umalayathesis} Example}
+
+\begin{minted}{latex}
+    \documentclass{umalayathesis}
+    
+    \usepackage{pdflscape}
+    \usepackage{tabularx}
+    \usepackage{longtable}
+    \usepackage{graphicx}
+    
+    \author{}
+    \identification{}
+    \matric{}
+    \title{The umalayathesis \LaTeX{} Document Class}
+    \tajuk{Kelas Dokumen \LaTeX{} umalayathesis}
+    \fieldofstudy{}
+    
+    \university{Universiti Malaya}
+    \department{Department of Physics}
+    \faculty{Faculty of Science}
+    \submissionyear{2025}
+    \degree{Doctor of Philosophy}
+    
+    \addbibresource{...}
+    
+    \begin{document}
+    
+    \frontmatter
+    \makecoverandtitlepage{\doctoralresearch}
+    \declarationpage
+    
+    \begin{abstract}
+    ...
+    \end{abstract}
+    
+    \begin{abstrak}
+    ...
+    \end{abstrak}
+    
+    \acknowledgements{}
+    
+    {\clearpage
+    \tableofcontents\clearpage
+    \listoffigures\clearpage
+    \listoftables\clearpage
+    \begin{listofacronyms}
+        ...
+    \end{listofacronyms}\clearpage
+    \listofappendices\clearpage
+    }
+    
+    \mainmatter
+    
+    \chapter{...}
+    ...
+    
+    \references
+    \ownreferences
+    
+    \begin{appendices}
+    \chapter{...}
+    ...
+    \end{appendices}
+\end{minted}
+
+\end{appendices}
+
+\end{document}
