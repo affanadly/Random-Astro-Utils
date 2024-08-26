@@ -3,6 +3,7 @@
 Random utility functions for radio astronomy
 
 * `SkyPlot.ipynb` - Plots object path in sky at a specific location on Earth.
+* `AIPS_installation.md` - Installation guide for AIPS on Ubuntu 22.04.
 * `continuum_combine.py` - Combines continuum images into a pseudo-spectral image.
 * `jive_install.sh` - Installs the jive5ab VLBI data transfer package.
 * `kurtosis.py` - RFI flagging functions using generalized spectral kurtosis.
