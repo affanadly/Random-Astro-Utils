@@ -146,6 +146,17 @@
   month = dec,
   pages = {461–469}
 }
+
+@proceedings{EAVN2024,
+  title = {{VLBI} Observations of 6.7 {GHz} methanol masers during maser flares},
+  author = {Ross, A. Burns},
+  year = {2024},
+  month = dec,
+  booktitle = {{East Asian VLBI Network 2024}},
+  
+  keywords={own,conf},
+}
+
 \end{filecontents}
 
 \addbibresource{ref.bib}
@@ -206,6 +217,7 @@ To `activate' the class, start with \mintinline{latex}|\documentclass{umalayathe
     \usepackage{graphicx} % advanced graphics options
     \usepackage{tabularx} % advanced table options
     \usepackage{longtable} % multi-page tables
+    \usepackage{amsmath} % complex equation environments
 \end{minted}
 
 \section{Author Information}
@@ -252,7 +264,7 @@ Uncomment the correct \mintinline{latex}|\makecoverandtitle| line to generate th
 
 \section{Abstracts}
 
-Write the English and Bahasa Malaysia abstracts in the \texttt{abstract} and \texttt{abstrak} environments respectively. If \mintinline{latex}|\tajuk| is defined, the Bahasa Malaysia abstract title will be prepended with that. A maxmimum of five (5) keywords should be listed below the abstract within their respective environments with the following format:
+Write the English and Bahasa Malaysia abstracts in the \texttt{abstract} and \texttt{abstrak} environments respectively. If \mintinline{latex}|\tajuk| is defined, the Bahasa Malaysia abstract title will be prepended with that. A maximum of five (5) keywords should be listed below the abstract within their respective environments with the following format:
 
 \mint{latex}|\textbf{Keywords: } Keyword, keyword, keyword.|
 
@@ -287,18 +299,18 @@ Note that the list should not end with double backslashes.
 
 \chapter{Main Chapters}
 
-The main chapters of the thesis should start with the \mintinline{latex}|\mainmatter| command. Then, the usual commands i.e. \mintinline{latex}|\chapter|, \mintinline{latex}|\section|, \mintinline{latex}|\subsection|, \mintinline{latex}|\subsubsection| can be used. Fifth level headings is also possible using \mintinline{latex}|\subsubsubsection|, but it will not appear in the Table of Contents (and not recommended in general). It is recommended that each chapter/section is split into different \texttt{tex} files and loaded into the main document file using the \mintinline{latex}|\input| command.
+The main chapters of the thesis should start with the \mintinline{latex}|\mainmatter| command. Then, the usual commands i.e. \mintinline{latex}|\chapter|, \mintinline{latex}|\section|, \mintinline{latex}|\subsection|, \mintinline{latex}|\subsubsection| can be used. Fifth level headings are also possible using \mintinline{latex}|\subsubsubsection|, but it will not appear in the Table of Contents (and not recommended in general). It is recommended that each chapter/section is split into different \texttt{tex} files and loaded into the main document file using the \mintinline{latex}|\input| command.
 
 \section{Figures}
 
-Figures can be added as usual using the \texttt{figure} environment. If a figure is too wide, it can be placed in a \texttt{landscape} environment (assuming that \texttt{pdflscape} has been loaded into the preamble). The following is an example command for the \texttt{figure} environment, followed by the output in Figure \ref{fig:figure}: 
+Figures can be added as usual using the \texttt{figure} environment. If a figure is too wide, it can be placed in a \texttt{landscape} environment (assuming that \texttt{pdflscape} has been loaded into the preamble). Inline equations are also supported within a figure's caption. The following is an example command for the \texttt{figure} environment, followed by the output in Figure \ref{fig:figure}: 
 
 \begin{minted}{latex}
     \begin{figure}
         \centering
         \includegraphics[width=0.75\linewidth]{example-image-a}
         \caption{Example figure.}
-        \label{fig:a}
+        \label{fig:figure}
     \end{figure}
 \end{minted}
 
@@ -440,6 +452,44 @@ If a table is too long to fit in a single page, the table should be created with
 \end{minted}
 
 Both environments can also be combined to accomodate a wide and long table, by applying the \texttt{landscape} environment first.
+
+\section{Equations}
+
+Mathematical expressions can be included in the thesis using standard \LaTeX{} math environments. The \texttt{umalayathesis} class does not impose any restrictions on mathematical formatting, so users can freely utilize \LaTeX{'s} math modes. The following are the common types of equations and their usage.
+
+\textbf{Inline Equations:} For short expressions within a paragraph, use the inline mode by enclosing the expression within single dollar signs. For example: 
+\begin{minted}{latex}
+    The speed of light is (approximately) given by $c = 3.00 \times 10^8~\mathrm{m}~\mathrm{s}^{-1}$
+\end{minted}
+is rendered as -- The speed of light is (approximately) given by $c = 3.00 \times 10^8~\mathrm{m}~\mathrm{s}^{-1}$.
+
+\textbf{Numbered Equations:} For standalone equations with numbering, use the \texttt{equation} environment. For example:
+\begin{minted}{latex}
+    \begin{equation}
+        E^2 = m^2c^4 + p^2c^2 \label{eq:energy}
+    \end{equation}
+\end{minted}
+is rendered as 
+\begin{equation}
+    E^2 = m_0^2c^4 + p^2c^2 \label{eq:energy}
+\end{equation}
+Note that to call a reference to the equation, the label command i.e. \mintinline{latex}{\label{...}} should be set. In this case, \mintinline{latex}{Equation \ref{eq:energy}} would return -- Equation \ref{eq:energy}. To remove the numbering for the entire environment, use the starred version i.e. \mintinline{latex}{\begin{equation*}...\end{equation*}}. For equations with multiple lines (without any necessary alignment), use the \texttt{gather} environment, and similarly, to remove the numbering for the entire environment, use the starred version. 
+
+\textbf{Aligned Equations:} When dealing with multiple equations that need to be aligned, use the `align` environment from the `amsmath` package. For example:
+\begin{minted}{latex}
+    \begin{align}
+        S_{\nu} &= \int_{\Omega} I_{\nu}~\mathrm{d}\Omega \label{eq:fluxdensity} \\
+        &= I_{\nu} \cdot 2\pi \int_0^{\theta_T} \sin{\theta} \cos{\theta}~\mathrm{d}\theta \nonumber \\
+        &= \pi I_{\nu}\left(\frac{R}{r}\right)^2 \label{eq:spherefluxdensity}
+    \end{align}
+\end{minted}
+is rendered as
+\begin{align}
+    S_{\nu} &= \int_{\Omega} I_{\nu}~\mathrm{d}\Omega \label{eq:fluxdensity} \\
+    &= I_{\nu} \cdot 2\pi \int_0^{\theta_T} \sin{\theta} \cos{\theta}~\mathrm{d}\theta \nonumber \\
+    &= \pi I_{\nu}\left(\frac{R}{r}\right)^2 \label{eq:spherefluxdensity}
+\end{align}
+Note that the ampersand (\mintinline{latex}{&}) acts as the alignment marker, and the \mintinline{latex}{\nonumber} (or \mintinline{latex}{\notag}) suppresses the equation number for a specific line (can be used in \texttt{gather} as well). Similarly, to remove numbering for the entire environment, use the starred version.
 
 \section{Code}
 

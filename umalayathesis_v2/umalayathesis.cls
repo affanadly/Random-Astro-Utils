@@ -5,6 +5,7 @@
 \LoadClass[12pt,a4paper,oneside]{memoir}
 \RequirePackage{etoolbox}
 \RequirePackage{calc}
+\RequirePackage{caption}
 \RequirePackage{enumitem}
 \RequirePackage{quoting}
 
@@ -379,7 +380,7 @@
 \setcounter{lofdepth}{2}
 \setcounter{lotdepth}{2}
 \captionnamefont{\bfseries\normalsize}
-\captiontitlefont{\bfseries\normalsize}
+\captiontitlefont{\bfseries\normalsize\boldmath}
 
 %%%%%
 % Symbols and Abbreviations
@@ -506,6 +507,7 @@
 \RequirePackage[
     style=apa6,
     sortcites=false,
+    uniquename=false
 ]{biblatex}
 
 \setlength\bibitemsep{2\onelineskip}
