@@ -516,11 +516,11 @@
 \setlength{\itemindent}{-0.5in}
 
 \renewcommand*{\mkbibnamegiven}[1]{%
-  \ifitemannotation{highlight}
+  \ifboolexpr{ test {\ifbibliography} and test {\ifitemannotation{highlight}} }
     {\textbf{#1}}
     {#1}}
 \renewcommand*{\mkbibnamefamily}[1]{%
-  \ifitemannotation{highlight}
+  \ifboolexpr{ test {\ifbibliography} and test {\ifitemannotation{highlight}} }
     {\textbf{#1}}
     {#1}}
 
