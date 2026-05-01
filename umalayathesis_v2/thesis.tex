@@ -370,6 +370,8 @@ The following is an example command for a landscape figure, and it is rendered i
     \end{landscape}
 \end{minted}
 
+Note that landscape figures can be enclosed in a \verb|\afterpage| command from the \texttt{afterpage} package to ensure that the figure does not disrupt the document flow.
+
 \section{Tables}
 
 Tables can also be added as usual using the \texttt{table} and \texttt{tabular} environments. For more advanced customization, the \texttt{tabularx} environment can be used (assuming that it has been loaded into the preamble). Subtables are also possible, the same way as subfigures. The following is an example command for the \texttt{table} and \texttt{tabular} environment, followed by the output in Table \ref{tab:table}:
@@ -427,7 +429,7 @@ Similar to figures, if a table is too wide, it can be placed in a \texttt{landsc
     \end{landscape}
 \end{minted}
 
-If a table is too long to fit in a single page, the table should be created with a \texttt{longtable} environment instead (assuming that it has been loaded into the preamble). The following is an example command for the \texttt{longtable} environment, and it is rendered in Appendix \ref{app:longtable}:
+Similar to landscape figures, landscape tables can also be enclosed in a \verb|\afterpage| command to ensure that the table does not disrupt the document flow. If a table is too long to fit in a single page, the table should be created with a \texttt{longtable} environment instead (assuming that it has been loaded into the preamble). The following is an example command for the \texttt{longtable} environment, and it is rendered in Appendix \ref{app:longtable}:
 
 \begin{minted}{latex}
     \begin{longtable}{ccc}
