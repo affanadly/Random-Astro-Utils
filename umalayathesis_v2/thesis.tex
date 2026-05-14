@@ -157,10 +157,16 @@
   
   keywords={own,conf},
 }
+\end{filecontents}
 
+\begin{filecontents}{acronyms.tex}
+\newacronym{theta}{$\theta_D$}{Diffraction limit}
+\newacronym{ALMA}{ALMA}{Atacama Large Millimeter/submillimeter Array}
+\newacronym{VLBI}{VLBI}{Very Long Baseline Interferometry}
 \end{filecontents}
 
 \addbibresource{ref.bib}
+\loadglsentries{acronyms.tex}
 
 \begin{document}
 
@@ -186,18 +192,15 @@ Abstrak Bahasa Malaysia perlu ditulis dalam satu perenggan menggunakan \textit{d
 \tableofcontents\clearpage
 \listoffigures\clearpage
 \listoftables\clearpage
-\begin{listofacronyms}
-    $\theta_D$ & Diffraction limit \\
-    $\alpha$ & Spectral index \\
-    ALMA & Atacama Large Millimeter/submillimeter Array \\
-    VLBI & Very Long Baseline Interferometry
-\end{listofacronyms}\clearpage
+\listofacronyms\clearpage
 \listofappendices\clearpage
 }
 
 \mainmatter
 
 \chapter{Introduction}
+
+\gls{ALMA} and \gls{VLBI} are two of the most powerful tools in modern astronomy. \gls{ALMA} is an interferometer located in the Atacama Desert in Chile, which operates at millimeter and submillimeter wavelengths. It consists of 66 high-precision antennas that can be arranged in different configurations to achieve high angular resolution and sensitivity. \gls{VLBI} is a technique that combines signals from multiple radio telescopes around the world to create a virtual telescope with an effective diameter equal to the maximum separation between the telescopes, allowing for extremely high angular resolution, \gls{theta}.
 
 \texttt{umalayathesis} is a \LaTeX{} class for authoring theses that fulfil formatting specifications required by Universiti Malaya, Malaysia. This updated version of the document class is written based on the original \texttt{umalayathesis} written by Lim Lian Tze (which can be accessed on \url{https://github.com/liantze/umalayathesis} and \url{https://www.overleaf.com/latex/templates/universiti-malaya-thesis-template/kbdmvkbnjchb}). 
 
@@ -282,21 +285,10 @@ The table of contents, list of figures, list of tables, list of symbols and abbr
     \tableofcontents\clearpage
     \listoffigures\clearpage
     \listoftables\clearpage
-    \begin{listofacronyms}
-        ...
-    \end{listofacronyms}\clearpage
+    \listofacronyms\clearpage
     \listofappendices\clearpage
     }
 \end{minted}
-
-The \texttt{listofacronyms} environment is a wrapper for the \texttt{tabular} environment, with settings meant for the list of symbols and abbreviations. Each row should be written in alphabetical order in the following format:
-
-\begin{minted}{latex}
-    Symbol/Abbr. & Explanation for the symbol/abbreviation \\
-    Symbol/Abbr. & Explanation for the symbol/abbreviation
-\end{minted}
-
-Note that the list should not end with double backslashes.
 
 \chapter{Main Chapters}
 
@@ -322,42 +314,6 @@ Figures can be added as usual using the \texttt{figure} environment. If a figure
     \label{fig:figure}
 \end{figure}
 
-Subfigures are also pre-loaded into this class, and they can be invoked by splitting a \texttt{figure} environment using the \texttt{minipage} environment. The following is an example command for the \texttt{subfigure} environment, followed by the output in Figure \ref{fig:subfigures}:
-
-\begin{minted}{latex}
-    \begin{figure}[h]
-        \centering
-        \begin{minipage}{0.48\textwidth}
-            \centering
-            \includegraphics[width=0.95\linewidth]{example-image-b}
-            \subcaption{Example subfigure with subcaption.}
-        \end{minipage}%
-        \begin{minipage}{0.48\textwidth}
-            \centering
-            \includegraphics[width=0.95\linewidth]{example-image-c}
-            \subcaption{}
-        \end{minipage}
-        \caption{Example subfigures, with the left subfigure with a subcaption, and the right subfigure without a subcaption, which means it can be explained in the main caption.}
-        \label{fig:subfigures}
-    \end{figure}
-\end{minted}
-
-\begin{figure}[h]
-    \centering
-    \begin{minipage}{0.48\textwidth}
-        \centering
-        \includegraphics[width=0.95\linewidth]{example-image-b}
-        \subcaption{Example subfigure with subcaption.}
-    \end{minipage}%
-    \begin{minipage}{0.48\textwidth}
-        \centering
-        \includegraphics[width=0.95\linewidth]{example-image-c}
-        \subcaption{}
-    \end{minipage}
-    \caption{Example subfigures, with the left subfigure with a subcaption, and the right subfigure without a subcaption, which means it can be explained in the main caption.}
-    \label{fig:subfigures}
-\end{figure}
-
 The following is an example command for a landscape figure, and it is rendered in Appendix \ref{app:landscapefigure}:
 
 \begin{minted}{latex}
@@ -375,7 +331,7 @@ Note that landscape figures can be enclosed in a \verb|\afterpage| command from 
 
 \section{Tables}
 
-Tables can also be added as usual using the \texttt{table} and \texttt{tabular} environments. For more advanced customization, the \texttt{tabularx} environment can be used (assuming that it has been loaded into the preamble). Subtables are also possible, the same way as subfigures. The following is an example command for the \texttt{table} and \texttt{tabular} environment, followed by the output in Table \ref{tab:table}:
+Tables can also be added as usual using the \texttt{table} and \texttt{tabular} environments. For more advanced customization, the \texttt{tabularx} environment can be used (assuming that it has been loaded into the preamble). The following is an example command for the \texttt{table} and \texttt{tabular} environment, followed by the output in Table \ref{tab:table}:
 
 \begin{minted}{latex}
     \begin{table}[h]
@@ -802,9 +758,7 @@ The appendices are written as chapters within an \texttt{appendices} environment
     \tableofcontents\clearpage
     \listoffigures\clearpage
     \listoftables\clearpage
-    \begin{listofacronyms}
-        ...
-    \end{listofacronyms}\clearpage
+    \listofacronyms\clearpage
     \listofappendices\clearpage
     }
     

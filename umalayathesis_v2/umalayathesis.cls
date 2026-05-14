@@ -373,12 +373,8 @@
 \titlespacing{\paragraph}{0pt}{2.5ex plus 1ex minus .2ex}{0.1ex plus .2ex}
 
 %%%%%
-% Subfloats and Captions
+% Captions
 %%%%%
-\newsubfloat{figure}
-\newsubfloat{table}
-\setcounter{lofdepth}{2}
-\setcounter{lotdepth}{2}
 \captionnamefont{\bfseries\normalsize}
 \captiontitlefont{\bfseries\normalsize\boldmath}
 
@@ -386,11 +382,20 @@
 % Symbols and Abbreviations
 %%%%%
 \RequirePackage{longtable}
-\newenvironment{listofacronyms}%
-    {\chapter{List of Symbols and Abbreviations}
-    \centering
-    \begin{longtable}[l]{l @{\hspace{1.5em}:\hspace{1.5em}} p{25em}}}
+\RequirePackage[toc,nonumberlist,shortcuts,translate=false,style=long,acronym]{glossaries}
+\glsdisablehyper
+\renewcommand*{\glsgroupskip}{}
+\setglossarypreamble{\SingleSpacing}
+\renewcommand{\acronymname}{List of Symbols and Abbreviations}
+\setlength\glsdescwidth{0.8\textwidth}
+\renewenvironment{theglossary}%
+    {\renewcommand*{\arraystretch}{1}\begin{longtable}[l]{@{}lp{\glsdescwidth}}}%
     {\end{longtable}}
+\makeglossaries
+\newcommand{\listofacronyms}{%
+    \renewcommand{\glsnamefont}[1]{##1\hfill\space:}%
+    \printglossary[type=\acronymtype]%
+}
 
 %%%%%
 % Quotes
@@ -442,18 +447,12 @@
 \renewcommand*\cftfigureaftersnum{:\space}
 \renewcommand*\cfttableaftersnum{:\space}
 \setlength\cftbeforefigureskip{0pt}
-\setlength\cftbeforesubfigureskip{0pt}
-\renewcommand*\cftsubfigureaftersnum{\space}
 \newlength{\tmplength}
 \settowidth{\tmplength}{\normalfont\cftfigurename}
 \addtolength{\tmplength}{\cftfigurenumwidth}
-\cftsetindents{subfigure}{\tmplength}{1.5em}
 \setlength\cftbeforetableskip{0pt}
-\setlength\cftbeforesubtableskip{0pt}
-\renewcommand*\cftsubtableaftersnum{\space}
 \settowidth{\tmplength}{\normalfont\cfttablename}
 \addtolength{\tmplength}{\cfttablenumwidth}
-\cftsetindents{subtable}{\tmplength}{1.5em}
 
 \let\oldinsertchapterspace\insertchapterspace
 \let\olduppercase\uppercase
@@ -485,9 +484,7 @@
 \setlength\cftbeforesubsectionskip{\onelineskip}
 \setlength\cftbeforesubsubsectionskip{\onelineskip}
 \setlength\cftbeforetableskip{\onelineskip}
-\setlength\cftbeforesubtableskip{\onelineskip}
 \setlength\cftbeforefigureskip{\onelineskip}
-\setlength\cftbeforesubfigureskip{\onelineskip}
 \preto{\tocheadstart}{\SingleSpacing}
 \preto{\lotheadstart}{\SingleSpacing}
 \preto{\lofheadstart}{\SingleSpacing}
