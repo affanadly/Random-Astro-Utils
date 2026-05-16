@@ -513,13 +513,25 @@ The \texttt{glossaries} package is pre-loaded into the class to manage symbols a
 
 \mint{latex}|\newacronym{label}{abbrv}{long}|
 
-To call symbols, only use the \mintinline{latex}|\acs{label}| command. To call the abbreviation, use \mintinline{latex}|\ac{label}|, which will print the long form followed by the abbreviation in parentheses on the first use, and only the abbreviation for subsequent uses. For example:
+where \texttt{label} is the unique identifier for the acronym, \texttt{abbrv} is the abbreviation, and \texttt{long} is the full form. To call symbols, only use the \mintinline{latex}|\acs{label}| command. To call the abbreviation, use \mintinline{latex}|\ac{label}|, which will print the long form followed by the abbreviation in parentheses on the first use, and only the abbreviation for subsequent uses. For example:
 
 \begin{quote}
     \ac{VLBI} is a powerful technique in radio astronomy. \ac{VLBI} allows for extremely high angular resolution, \acs{theta}. Examples of \ac{VLBI} arrays include the Event Horizon Telescope and \ac{ALMA}. \ac{ALMA} is an interferometer located in the Atacama Desert in Chile, which operates at millimeter and submillimeter wavelengths.
 \end{quote}
 
-For plural forms, use \mintinline{latex}|\acp{label}|. To capitalise the first letter, use \mintinline{latex}|\Ac{label}|. To force the short, long, or full form, use \mintinline{latex}|\acs{label}|, \mintinline{latex}|\acl{label}|, and \mintinline{latex}|\acf{label}|, respectively (independent of first use). For more advanced usage, 
+For plural forms, use \mintinline{latex}|\acp{label}|. To capitalise the first letter, use \mintinline{latex}|\Ac{label}|. To force the short, long, or full form, use \mintinline{latex}|\acs{label}|, \mintinline{latex}|\acl{label}|, and \mintinline{latex}|\acf{label}|, respectively (independent of first use). For more advanced usage, the abbreviation can be defined with \mintinline{latex}|\newglossaryentry| command, with the following syntax:
+
+\begin{minted}{latex}
+    \newglossaryentry{label}{
+        name={abbrv},
+        description={long},
+        first={first long},
+        plural={abbrvs},
+        firstplural={first long plural}
+    }
+\end{minted}
+
+where \texttt{first} and \texttt{firstplural} are the formats for the first use of the abbreviation in singular and plural forms, respectively, and this is usually used for defininng proper nouns prepended by a definite article.
 
 \section{Citations}
 
