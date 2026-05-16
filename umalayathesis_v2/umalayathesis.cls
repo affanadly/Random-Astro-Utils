@@ -373,8 +373,12 @@
 \titlespacing{\paragraph}{0pt}{2.5ex plus 1ex minus .2ex}{0.1ex plus .2ex}
 
 %%%%%
-% Captions
+% Subfloats and Captions
 %%%%%
+\newsubfloat{figure}
+\newsubfloat{table}
+\setcounter{lofdepth}{2}
+\setcounter{lotdepth}{2}
 \captionnamefont{\bfseries\normalsize}
 \captiontitlefont{\bfseries\normalsize\boldmath}
 
@@ -447,10 +451,15 @@
 \renewcommand*\cftfigureaftersnum{:\space}
 \renewcommand*\cfttableaftersnum{:\space}
 \setlength\cftbeforefigureskip{0pt}
+\setlength\cftbeforesubfigureskip{0pt}
+\renewcommand*\cftsubfigureaftersnum{\space}
 \newlength{\tmplength}
 \settowidth{\tmplength}{\normalfont\cftfigurename}
 \addtolength{\tmplength}{\cftfigurenumwidth}
+\cftsetindents{subfigure}{\tmplength}{1.5em}
 \setlength\cftbeforetableskip{0pt}
+\setlength\cftbeforesubtableskip{0pt}
+\renewcommand*\cftsubtableaftersnum{\space}
 \settowidth{\tmplength}{\normalfont\cfttablename}
 \addtolength{\tmplength}{\cfttablenumwidth}
 
@@ -484,7 +493,9 @@
 \setlength\cftbeforesubsectionskip{\onelineskip}
 \setlength\cftbeforesubsubsectionskip{\onelineskip}
 \setlength\cftbeforetableskip{\onelineskip}
+\setlength\cftbeforesubtableskip{\onelineskip}
 \setlength\cftbeforefigureskip{\onelineskip}
+\setlength\cftbeforesubfigureskip{\onelineskip}
 \preto{\tocheadstart}{\SingleSpacing}
 \preto{\lotheadstart}{\SingleSpacing}
 \preto{\lofheadstart}{\SingleSpacing}
