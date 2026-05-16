@@ -512,6 +512,7 @@ where \texttt{label} is the unique identifier for the acronym, \texttt{abbrv} is
 For plural forms, use \mintinline{latex}|\acp|. To capitalise the first letter, use \mintinline{latex}|\Ac|. To force the short, long, or full form, use \mintinline{latex}|\acs|, \mintinline{latex}|\acl|, and \mintinline{latex}|\acf|, respectively (independent of first use). For more advanced usage, the abbreviation can be defined with \mintinline{latex}|\newglossaryentry| command, with the following syntax:
 \begin{minted}{latex}
     \newglossaryentry{label}{
+        type=\acronymtype,
         name={abbrv},
         description={long},
         first={first long},
