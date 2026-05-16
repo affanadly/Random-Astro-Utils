@@ -295,7 +295,6 @@ The main chapters of the thesis should start with the \mintinline{latex}|\mainma
 \section{Figures}
 
 Figures can be added as usual using the \texttt{figure} environment. If a figure is too wide, it can be placed in a \texttt{landscape} environment (assuming that \texttt{pdflscape} has been loaded into the preamble). Inline equations are also supported within a figure's caption. The following is an example command for the \texttt{figure} environment, followed by the output in Figure \ref{fig:figure}: 
-
 \begin{minted}{latex}
     \begin{figure}
         \centering
@@ -313,7 +312,6 @@ Figures can be added as usual using the \texttt{figure} environment. If a figure
 \end{figure}
 
 Subfigures are also pre-loaded into this class, and they can be invoked by splitting a \texttt{figure} environment using the \texttt{minipage} environment. The following is an example command for the \texttt{subfigure} environment, followed by the output in Figure \ref{fig:subfigures}:
-
 \begin{minted}{latex}
     \begin{figure}[h]
         \centering
@@ -349,7 +347,6 @@ Subfigures are also pre-loaded into this class, and they can be invoked by split
 \end{figure}
 
 The following is an example command for a landscape figure, and it is rendered in Appendix \ref{app:landscapefigure}:
-
 \begin{minted}{latex}
     \begin{landscape}
         \begin{figure}[h]
@@ -366,7 +363,6 @@ Note that landscape figures can be enclosed in a \verb|\afterpage| command from 
 \section{Tables}
 
 Tables can also be added as usual using the \texttt{table} and \texttt{tabular} environments. For more advanced customization, the \texttt{tabularx} environment can be used (assuming that it has been loaded into the preamble). Subtables are also possible, the same way as subfigures. The following is an example command for the \texttt{table} and \texttt{tabular} environment, followed by the output in Table \ref{tab:table}:
-
 \begin{minted}{latex}
     \begin{table}[h]
         \centering
@@ -400,7 +396,6 @@ Tables can also be added as usual using the \texttt{table} and \texttt{tabular} 
 \end{table}
 
 Similar to figures, if a table is too wide, it can be placed in a \texttt{landscape} environment. The following is an example command for a landscape table, and it is rendered in Appendix \ref{app:landscapetable}:
-
 \begin{minted}{latex}
     \begin{landscape}
         \begin{table}[h]
@@ -421,7 +416,6 @@ Similar to figures, if a table is too wide, it can be placed in a \texttt{landsc
 \end{minted}
 
 Similar to landscape figures, landscape tables can also be enclosed in a \verb|\afterpage| command to ensure that the table does not disrupt the document flow. If a table is too long to fit in a single page, the table should be created with a \texttt{longtable} environment instead (assuming that it has been loaded into the preamble). The following is an example command for the \texttt{longtable} environment, and it is rendered in Appendix \ref{app:longtable}:
-
 \begin{minted}{latex}
     \begin{longtable}{ccc}
         \caption{Example longtable.}\label{tab:longtable} \\
@@ -487,7 +481,6 @@ Note that the ampersand (\mintinline{latex}{&}) acts as the alignment marker, an
 \section{Code}
 
 To display code, the \texttt{minted} package can be used. The \texttt{minted} package should be initialized in the preamble using the following command:
-
 \begin{minted}{latex}
     \usepackage{minted}
     \usemintedstyle{vs}
@@ -510,17 +503,13 @@ The \texttt{minted} environment can be enclosed within a \texttt{listing} enviro
 \section{Symbols and Abbreviations}
 
 The \texttt{glossaries} package is pre-loaded into the class to manage symbols and abbreviations. To define a symbol or an abbreviation, use the \mintinline{latex}|\newacronym| command with the following syntax:
-
 \mint{latex}|\newacronym{label}{abbrv}{long}|
-
 where \texttt{label} is the unique identifier for the acronym, \texttt{abbrv} is the abbreviation, and \texttt{long} is the full form. To call symbols, only use the \mintinline{latex}|\acs{label}| command. To call abbreviations, use \mintinline{latex}|\ac{label}|, which will print the long form followed by the abbreviation in parentheses on the first use, and only the abbreviation for subsequent uses. For example:
-
 \begin{quote}
     \ac{VLBI} is a powerful technique in radio astronomy. \ac{VLBI} allows for extremely high angular resolution, \acs{theta}. Examples of \ac{VLBI} arrays include the Event Horizon Telescope and \ac{ALMA}. \ac{ALMA} is an interferometer located in the Atacama Desert in Chile, which operates at millimeter and submillimeter wavelengths.
 \end{quote}
 
 For plural forms, use \mintinline{latex}|\acp|. To capitalise the first letter, use \mintinline{latex}|\Ac|. To force the short, long, or full form, use \mintinline{latex}|\acs|, \mintinline{latex}|\acl|, and \mintinline{latex}|\acf|, respectively (independent of first use). For more advanced usage, the abbreviation can be defined with \mintinline{latex}|\newglossaryentry| command, with the following syntax:
-
 \begin{minted}{latex}
     \newglossaryentry{label}{
         name={abbrv},
@@ -530,21 +519,17 @@ For plural forms, use \mintinline{latex}|\acp|. To capitalise the first letter, 
         firstplural={first long plural}
     }
 \end{minted}
-
 where \texttt{first}, \texttt{plural}, and \texttt{firstplural} are the custom formats for the first use of the abbreviation in singular, the plural, and the first use in plural forms, respectively.
 
 \section{Citations}
 
 As this version of the \texttt{umalayathesis} document class utilizes \texttt{biblatex} (See Section \ref{sec:ref} for more information), \texttt{biblatex} cite commands should be used. All \texttt{biblatex} citation commands take one mandatory arguments i.e. \texttt{key} and two optional arguments i.e. \texttt{prenote} and \texttt{postnote} with the following syntax:
-
 \mint{latex}|\command[prenote][postnote]{key}|
-
-\texttt{key} corresponds to the entry keys in the bibliography file(s), \texttt{prenote} is printed at the beginning of the citation, and \texttt{postnote} is printed at the end of citation. If the bibliographic entry begins with a lowercase, the citation command can be forced to uppercase using \mintinline{latex}|\Command| i.e. if the citation begins a sentence (this is overriden if the command has a prenote). Multiple citations can be done by listing all the keys, but unique pre- and/or postnotes for each key can be invoked using \mintinline{latex}|\commands| with the following syntax:
+where \texttt{key} corresponds to the entry keys in the bibliography file(s), \texttt{prenote} is printed at the beginning of the citation, and \texttt{postnote} is printed at the end of citation. If the bibliographic entry begins with a lowercase, the citation command can be forced to uppercase using \mintinline{latex}|\Command| i.e. if the citation begins a sentence (this is overriden if the command has a prenote). Multiple citations can be done by listing all the keys, but unique pre- and/or postnotes for each key can be invoked using \mintinline{latex}|\commands| with the following syntax:
 
 \mint{latex}|\commands[prenote1][post1]{key1}[prenote2][postnote2]{key2} ...|
 
 The next subsections will show the common APA in-text citation commands in \texttt{biblatex}, followed by examples of their output (and respective variants). The bibliographic entries used in the examples are:
-
 \begin{itemize}
     \item Usual: \mintinline{latex}|\command{Rosli2023}|
     \item With pre- and postnotes: \mintinline{latex}|\command[pre][post]{Zhou2024}|
@@ -557,7 +542,6 @@ The next subsections will show the common APA in-text citation commands in \text
 
 \mintinline{latex}|\parencite| This creates the usual APA style 
 citation in parentheses: \parencite{Rosli2023}. 
-
 \begin{itemize}[nosep]
     \item With pre- and postnotes: \parencite[pre][post]{Zhou2024}
     \item Forcing uppercase: \Parencite{vanderTak1999}
@@ -566,7 +550,6 @@ citation in parentheses: \parencite{Rosli2023}.
 \end{itemize}
 
 \mintinline{latex}|\textcite| This creates the in-text APA style citation which puts only the year in parentheses, usually for usage in text to refer to the author of a specific reference: \textcite{Rosli2023}. 
-
 \begin{itemize}[nosep]
     \item With pre- and postnotes: \textcite[pre][post]{Zhou2024}
     \item Forcing uppercase: \Textcite{vanderTak1999}
@@ -575,7 +558,6 @@ citation in parentheses: \parencite{Rosli2023}.
 \end{itemize}
 
 \mintinline{latex}|\cite| This creates APA style citation without parentheses, usually for usage in text to refer to the exact reference: \cite{Rosli2023}
-
 \begin{itemize}[nosep]
     \item With pre- and postnotes: \cite[pre][post]{Zhou2024}
     \item Forcing uppercase: \Cite{vanderTak1999}
@@ -610,7 +592,6 @@ Unlike the original \texttt{umalayathesis} class, this version utilizes the more
 \subsection{Bibliography Files}
 
 Bibliography files (\texttt{.bib} files) follow the standard \texttt{bibtex} formatting. For author's own publications, the entries should be modified by the following rules:
-
 \begin{itemize}
     \item Add the `\texttt{keywords}' key and set its value to `\texttt{own}' e.g.
     \begin{minted}{bibtex}
